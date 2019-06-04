@@ -6,15 +6,20 @@ public class URLify {
   }
 
   private static String updateStringToUrlString(String text, int textLen) {
-    char[] textArray = text.toCharArray();
-    int spaceLen = 0;
+    char[] textArray = text.trim().toCharArray();
+    String result = "";
+    boolean wasEmpty = false;
+
     for(char element : textArray){
       if(element == ' '){
-        spaceLen++;
+        result += "%20";
+        wasEmpty = true;
+      }else{
+        result += element;
       }
     }
 
-    return "";
+    return result;
   }
 }
 
